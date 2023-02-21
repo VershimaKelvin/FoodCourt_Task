@@ -1,5 +1,5 @@
 class Routes {
-  //all routes should be created here
+  //all routes will be created here
 
   static const String splashScreen = '/';
 
