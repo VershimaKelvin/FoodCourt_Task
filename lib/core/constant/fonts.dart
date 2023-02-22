@@ -51,7 +51,7 @@ class TextBody extends AppTextBase {
     maxLines: maxLines,
     style: GoogleFonts.roboto(
       fontSize: fontSize ?? 14,
-      color: color ?? AppColors.secondBlue,
+      color: color ?? AppColors.white,
       fontWeight: fontWeight,
       height: height,
     ).merge(style),
@@ -127,7 +127,7 @@ class TextSemiBold extends AppTextBase {
     maxLines: maxLines,
     style: GoogleFonts.roboto(
       fontSize: fontSize ?? 14,
-      color: color ?? AppColors.secondBlue,
+      color: color ?? AppColors.white,
       fontWeight: fontWeight,
     ).merge(style),
     textAlign: textAlign,
