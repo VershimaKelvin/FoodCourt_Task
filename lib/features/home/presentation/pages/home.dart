@@ -3,6 +3,7 @@ import 'package:task/core/constant/app_color.dart';
 import 'package:intl/intl.dart';
 import 'package:task/core/constant/fonts.dart';
 import 'package:task/core/constant/ui_helpers.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -12,6 +13,14 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen>{
+
+  final List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+  ];
+  String? selectedValue;
 
   @override
   void initState() {
@@ -38,6 +47,43 @@ class _WeatherScreenState extends State<WeatherScreen>{
               )
             ],
           ),
+          actions: [
+            DropdownButtonHideUnderline(
+              child: DropdownButton2(
+                hint: TextBody('Lagos'),
+                items: items
+                    .map((item) =>
+                    DropdownMenuItem<String>(
+                      value: item,
+                      child: Text(
+                        item,
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                    ))
+                    .toList(),
+                value: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value as String;
+                  });
+                },
+                buttonHeight: 40,
+                buttonWidth: 140,
+                itemHeight: 40,
+              ),
+            ),
+            // Row(
+            //   children: [
+            //     TextBody('Abuja'),
+            //     gapTiny,
+            //     const Icon(
+            //       Icons.arrow_drop_down_sharp
+            //     ),
+            //   ],
+            // )
+          ],
         ),
         backgroundColor: AppColors.blackColor,
         body:Scaffold(
@@ -128,6 +174,12 @@ class _WeatherScreenState extends State<WeatherScreen>{
                     ),
                   ),
                 ],
+              ),
+              FloatingActionButton(
+                  onPressed: (){},
+                child: const Icon(
+                  Icons.my_location
+                ),
               )
             ],
           ),
